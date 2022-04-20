@@ -10,13 +10,9 @@ const ingredients = [
 ];
 
 const ingredientsListEl = document.querySelector('#ingredients');
-const ingredientsArray = [];
 
-for (let i = 0; i < ingredients.length; i += 1) {
-  const listItemEl = document.createElement('li');
-  listItemEl.classList.add('item');
-  listItemEl.textContent = ingredients[i];
-  ingredientsArray.push(listItemEl);
-}
+const markup = ingredients
+  .map(ingredient => `<li class="item">${ingredient}</li>`)
+  .join('');
 
-ingredientsListEl.append(...ingredientsArray);
+ingredientsListEl.innerHTML = markup;
